@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -19,8 +21,21 @@ void main() {
   );
 
   runApp(
-    BlocProvider<ThemeBloc>(
-      create: (context) => ThemeBloc(),
+    // BlocProvider<ThemeBloc>(
+    //   create: (context) => ThemeBloc(),
+    //   child: MyApp(
+    //     weatherRepository: repository,
+    //   ),
+    // ),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider<ThemeBloc>(
+          create: (context) => ThemeBloc(),
+        ),
+        BlocProvider<SettingBloc>(
+          create: (context) => SettingBloc(),
+        ),
+      ],
       child: MyApp(
         weatherRepository: repository,
       ),
