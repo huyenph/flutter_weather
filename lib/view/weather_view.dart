@@ -48,8 +48,7 @@ class _WeatherViewState extends State<WeatherView> {
                 ),
               );
               if (city != null) {
-                BlocProvider.of<WeatherBloc>(context)
-                    .add(FetchWeather(city: city));
+                weatherBloc.add(FetchWeather(city: city));
               }
             },
           ),
@@ -84,8 +83,8 @@ class _WeatherViewState extends State<WeatherView> {
                       color: themeState.color,
                       child: RefreshIndicator(
                         onRefresh: () {
-                          BlocProvider.of<WeatherBloc>(context).add(
-                            WeatherRefresh(city: weather.location),
+                          weatherBloc.add(
+                            RefreshWeather(city: weather.location),
                           );
                           return _refreshCompleter.future;
                         },
