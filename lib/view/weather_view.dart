@@ -28,6 +28,17 @@ class _WeatherViewState extends State<WeatherView> {
         title: Text('Weather'),
         actions: <Widget>[
           IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Setting(),
+                ),
+              );
+            },
+          ),
+          IconButton(
             icon: Icon(CupertinoIcons.search),
             onPressed: () async {
               final city = await Navigator.push(

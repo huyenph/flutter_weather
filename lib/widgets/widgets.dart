@@ -5,3 +5,4 @@ export './location.dart';
 export './weather_condition.dart';
 export './temperature.dart';
 export './gradient.dart';
+export './setting.dart';
